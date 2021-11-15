@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 color: Colors.transparent,
                 child: InkWell(
                   borderRadius:
-                      BorderRadius.circular(AppBar().preferredSize.height),
+                  BorderRadius.circular(AppBar().preferredSize.height),
                   child: Icon(
                     multiple ? Icons.dashboard : Icons.view_agenda,
                     color: AppTheme.dark_grey,
@@ -168,6 +168,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ),
     );
   }
+
 }
 
 class HomeListView extends StatelessWidget {

@@ -1,7 +1,9 @@
 import 'package:baby_madics/Design/Dimens.dart';
 import 'package:baby_madics/Design/Shade.dart';
 import 'package:baby_madics/Design/Strings.dart';
+import 'package:baby_madics/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class AddOrder extends StatefulWidget {
@@ -37,7 +39,20 @@ class _AddOrderState extends State<AddOrder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Shade.globalBackgroundColor,
+      backgroundColor: AppTheme.white,
+      appBar: AppBar(
+        title: Text(
+          Strings.titleAddOrder,
+          style: TextStyle(
+            fontSize: 20,
+            color: AppTheme.darkText,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: AppTheme.white,
+        elevation: 0.0,
+      ),
       body: DefaultTextStyle(
         style: Theme.of(context).textTheme.bodyText2,
         child: LayoutBuilder(
@@ -58,9 +73,12 @@ class _AddOrderState extends State<AddOrder> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        widgetServiceName(),
-                        widgetDescription(),
-                        widgetSubmit()
+                        // SizedBox(height: 20),
+                        // widgetAddOrderLabel(),
+                        widgetName(),
+                        widgetUnit(),
+                        widgetQuantity(),
+                        widgetSubmit(),
                       ],
                     ),
                   ),
@@ -73,7 +91,7 @@ class _AddOrderState extends State<AddOrder> {
     );
   }
 
-  Widget widgetServiceName() {
+  Widget widgetName() {
     return Column(
       children: [
         Padding(
@@ -88,7 +106,7 @@ class _AddOrderState extends State<AddOrder> {
             decoration: InputDecoration(
                 prefixIcon: Icon(Icons.fact_check),
                 border: OutlineInputBorder(),
-                labelText: 'Service Name'),
+                labelText: 'Name'),
             validator: (String value) {
               if (value == null || value.isEmpty) {
                 return 'This field cannot be empty';
@@ -104,7 +122,7 @@ class _AddOrderState extends State<AddOrder> {
     );
   }
 
-  Widget widgetDescription() {
+  Widget widgetUnit() {
     return Column(
       children: [
         Padding(
@@ -115,11 +133,43 @@ class _AddOrderState extends State<AddOrder> {
               Dimens.globalInputFieldBottom),
           child: TextFormField(
             autofocus: false,
-            maxLength: 100,
+            maxLength: 30,
+            decoration: InputDecoration(
+                prefixIcon: Icon(Icons.fact_check),
+                border: OutlineInputBorder(),
+                labelText: 'Unit'),
+            validator: (String value) {
+              if (value == null || value.isEmpty) {
+                return 'This field cannot be empty';
+              }
+              return null;
+            },
+            onSaved: (String value) {
+              name = value;
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget widgetQuantity() {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(
+              Dimens.globalInputFieldleft,
+              Dimens.globalInputFieldTop,
+              Dimens.globalInputFieldRight,
+              Dimens.globalInputFieldBottom),
+          child: TextFormField(
+            autofocus: false,
+            maxLength: 2,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             decoration: InputDecoration(
                 prefixIcon: Icon(Icons.description),
                 border: OutlineInputBorder(),
-                labelText: 'Service Description'),
+                labelText: 'Quantity'),
             validator: (String value) {
               if (value == null || value.isEmpty) {
                 return 'This field cannot be empty';
@@ -156,7 +206,7 @@ class _AddOrderState extends State<AddOrder> {
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                     ),
                     child: Text('Submit'),
-                    // onPressed: () => onPressedSubmit(),
+                    onPressed: () => onPressedSubmit(),
                   ),
                 ),
               )
@@ -165,5 +215,9 @@ class _AddOrderState extends State<AddOrder> {
               )
       ],
     );
+  }
+
+  Future<void> onPressedSubmit() {
+    print("Hello World");
   }
 }

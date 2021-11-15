@@ -1,32 +1,8 @@
 class Strings {
   static const String titleHomePage = 'Admin';
-  static const String titleAddDoctor = 'Add Doctor';
-  static const String titleAddNurse = 'Add Nurse';
-  static const String titleAddProcedures = 'Add Procedures';
-  static const String titleAddReceptionist = 'Add Receptionist';
-  static const String titleAddRoom = 'Add Room';
-  static const String titleAddService = 'Add Service';
-  static const String titleDoctorList = 'Doctor List';
-  static const String titleNurseAppointment = 'Nurse Appointment';
-  static const String titleNurseList = 'Nurse List';
-  static const String titleProcedureList = 'Procedure List';
-  static const String titleReceptionistList = 'Receptionist List';
-  static const String titleRoomList = 'Room List';
-  static const String titleServiceList = 'Service List';
-  static const String titlePatientList = 'Patient List';
-  static const String titleExpenseList = 'Expense List';
-  static const String titleInvoiceList = 'Invoice List';
-  static const String titleAdmittedList = 'Admitted Patient List';
-  static const String titleAppointmentList = 'Appointment List';
-  static const String titleLogout = 'Log out';
-  static const String titleEditProcedure = 'Edit Procedure';
-  static const String titleEditService = 'Edit Service';
-  static const String titleEditRoom = 'Edit Room';
-  static const String titleEditReceptionist = 'Edit Receptionist';
-  static const String titleEditDoctor = 'Edit Doctor';
-  static const String titleEditNurse = 'Edit Nurse';
-  static const String titleAccounts = 'Accounts';
-  static const String titleLogin = 'Login';
+
+  static const String titleAddOrder = 'Add Order';
+  static const String titleCurrentOrder = 'Current Order';
 
   static const String routeHomePage = '/';
   static const String routeAddDoctor = '/AddDoctor';
@@ -87,7 +63,6 @@ class Strings {
   static const String apiNurseUpdate = 'api/nurse/update';
   static const String apiNurseDelete = 'api/nurse/delete';
   static const String apiNurseGetSearch = 'api/nurse/search';
-
 
   static const String apiPatientGetCategory = 'api/appointment/get/category';
   static const String apiPatientPostSearch = '/api/Appointment/post/search';
