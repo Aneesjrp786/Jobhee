@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "12738972910",
+    "project_id": "jubhee-3b7d2",
+    "storage_bucket": "jubhee-3b7d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12738972910:android:a70eb957a327cb2f81b7ff",
+        "android_client_info": {
+          "package_name": "com.example.baby_madics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12738972910-i9k104r4aoif5rr6muql4bg77ad95igq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baby_madics",
+            "certificate_hash": "fe27a6cbecd05051aea5ef4c216ee78b0ec4a0e2"
+          }
+        },
+        {
+          "client_id": "12738972910-bhhap55e313o7mgd6ae8c6s0usf1qans.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiTGS2ofFGIPPIb4sRnIK46a2o4CBDxsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12738972910-bhhap55e313o7mgd6ae8c6s0usf1qans.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
