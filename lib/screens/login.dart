@@ -1,3 +1,4 @@
+import 'package:baby_madics/Design/Shade.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
       showErrorDialog(context, 'Contact number can\'t be empty.');
     } else {
       String contact = '+92' + _contactEditingController.text;
-      Navigator.pop(context);
+      // Navigator.pop(context);
       final responseMessage =
           await Navigator.pushNamed(context, '/otpScreen', arguments: contact);
       if (responseMessage != null) {
@@ -32,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
           isDefaultAction: true,
           child: const Text('Yes'),
           onPressed: () {
-            Navigator.of(context).pop();
+            // Navigator.of(context).pop();
           },
         )
       ],
@@ -63,7 +64,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 _ImageField(),
                 const Text(
                   'Register',
-                  style: TextStyle(fontSize: 28, color: Colors.black),
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
                 const Text(
                   'Enter your mobile number to receive a verification code',
@@ -87,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Image.asset(
-      'assets/images/registration.png',
+      'assets/images/feedbackImage.png',
       height: screenHeight * 0.3,
       fit: BoxFit.contain,
     );
@@ -119,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 45,
             decoration: BoxDecoration(
               border: Border.all(
-                color: const Color.fromARGB(255, 253, 188, 51),
+                color: Shade.nearlyBlue,
               ),
               borderRadius: BorderRadius.circular(36),
             ),
@@ -178,7 +182,7 @@ class CustomButton extends StatelessWidget {
         height: 45,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 253, 188, 51),
+          color: Shade.nearlyBlue,
           borderRadius: BorderRadius.circular(36),
         ),
         alignment: Alignment.center,

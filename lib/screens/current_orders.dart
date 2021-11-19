@@ -2,10 +2,12 @@ import 'package:baby_madics/Design/Dimens.dart';
 import 'package:baby_madics/Design/Shade.dart';
 import 'package:baby_madics/Design/Strings.dart';
 import 'package:baby_madics/app_theme.dart';
+import 'package:baby_madics/screens/order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class CurrentOrder extends StatefulWidget {
   @override
@@ -40,7 +42,7 @@ class _CurrentOrderState extends State<CurrentOrder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.white,
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: Text(
           Strings.titleCurrentOrder,
@@ -51,7 +53,7 @@ class _CurrentOrderState extends State<CurrentOrder> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: AppTheme.white,
+        backgroundColor: Colors.grey[100],
         elevation: 0.0,
       ),
       body: ListView(
@@ -554,23 +556,59 @@ class _CurrentOrderState extends State<CurrentOrder> {
           new IconButton(
             icon: Icon(Icons.chat),
             iconSize: 48,
-            disabledColor: Colors.green,
+            color: Colors.green,
+            disabledColor: Colors.green[100],
             onPressed: test(),
           ),
           new IconButton(
             icon: Icon(Icons.calendar_today),
             iconSize: 48,
-            disabledColor: Colors.blueAccent,
-            onPressed: test(),
+            color: Colors.blueAccent,
+            disabledColor: Colors.blueAccent[400],
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => OrderDetails()),
+            ),
           ),
           new IconButton(
             icon: Icon(Icons.cancel),
-            disabledColor: Colors.red,
+            color: Colors.red,
+            disabledColor: Colors.red[700],
             iconSize: 48,
-            onPressed: test(),
+            onPressed: () => _onAlertButtonsPressed(context),
           ),
         ],
       ),
     );
+  }
+
+  _onAlertButtonsPressed(context) {
+    Alert(
+      context: context,
+      type: AlertType.warning,
+      title: "Cancel Alert",
+      desc: "Do you want to cancel this order?",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "Yes",
+            style: TextStyle(color: Colors.white, fontSize: 18),
+          ),
+          onPressed: () => Navigator.pop(context),
+          color: Color.fromRGBO(0, 179, 134, 1.0),
+        ),
+        DialogButton(
+          child: Text(
+            "No",
+            style: TextStyle(color: Colors.white, fontSize: 18),
+          ),
+          onPressed: () => Navigator.pop(context),
+          gradient: LinearGradient(colors: [
+            Color.fromRGBO(116, 116, 191, 1.0),
+            Color.fromRGBO(52, 138, 199, 1.0),
+          ]),
+        )
+      ],
+    ).show();
   }
 }

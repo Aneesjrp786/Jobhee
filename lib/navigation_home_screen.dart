@@ -2,9 +2,10 @@ import 'package:baby_madics/app_theme.dart';
 import 'package:baby_madics/custom_drawer/drawer_user_controller.dart';
 import 'package:baby_madics/custom_drawer/home_drawer.dart';
 import 'package:baby_madics/screens/ProfileScreen.dart';
-import 'package:baby_madics/screens/addorderscreen.dart';
+import 'package:baby_madics/screens/about.dart';
+import 'package:baby_madics/screens/add_order_screen.dart';
 import 'package:baby_madics/screens/current_orders.dart';
-import 'package:baby_madics/screens/feedback_screen.dart';
+import 'package:baby_madics/screens/all_orders.dart';
 import 'package:baby_madics/screens/help_screen.dart';
 import 'package:baby_madics/screens/home_screen.dart';
 import 'package:baby_madics/screens/invite_friend_screen.dart';
@@ -59,7 +60,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.AllOrder) {
         setState(() {
-          screenView = FeedbackScreen();
+          screenView = AllOrders();
         });
       } else if (drawerIndex == DrawerIndex.AddOrder) {
         setState(() {
@@ -85,7 +86,12 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         setState(() {
           screenView = InviteFriend();
         });
-      } else {
+      } else if (drawerIndex == DrawerIndex.About) {
+        setState(() {
+          screenView = About();
+        });
+      }
+      else {
         //do in your way......
       }
     }

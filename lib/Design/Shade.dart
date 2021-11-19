@@ -6,7 +6,7 @@ class Shade {
   static final Color drawerHeaderColor = Colors.blueGrey;
   static final Color submitButtonColor = Colors.blueGrey;
   static final Color fabGlobalButtonColor = Colors.blueGrey;
-
+  static const Color nearlyBlue = Color(0xFF00B6F0);
   static final Color snackGlobalSuccess = Colors.blueGrey;
   static final Color snackGlobalFailed = Colors.red;
 

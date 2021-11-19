@@ -1,3 +1,4 @@
+import 'package:baby_madics/Design/Shade.dart';
 import 'package:baby_madics/navigation_home_screen.dart';
 import 'package:baby_madics/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pin_entry_text_field/pin_entry_text_field.dart';
 import 'package:pinput/pin_put/pin_put.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class OtpScreen extends StatefulWidget {
   bool _isInit = true;
@@ -23,6 +25,12 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    SmsAutoFill().unregisterListener();
+    super.dispose();
   }
 
   @override
@@ -127,7 +135,7 @@ class _OtpScreenState extends State<OtpScreen> {
               height: 45,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 253, 188, 51),
+                color: Shade.nearlyBlue,
                 borderRadius: BorderRadius.circular(36),
               ),
               alignment: Alignment.center,
@@ -176,7 +184,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
   Widget darkRoundedPinPut() {
     final BoxDecoration pinPutDecoration = BoxDecoration(
-      color: Colors.grey,
+      color: Colors.grey[400],
       borderRadius: BorderRadius.circular(20.0),
     );
     return PinPut(
@@ -191,28 +199,32 @@ class _OtpScreenState extends State<OtpScreen> {
       onSubmit: (String pin) {
         smsOTP = pin as String;
       },
-      textStyle: const TextStyle(color: Colors.white, fontSize: 14.0),
+      textStyle: const TextStyle(color: Colors.black, fontSize: 16.0),
     );
   }
 
   Future<void> _verifyOTP() async {
-    try {
-      await FirebaseAuth.instance
-          .signInWithCredential(PhoneAuthProvider.credential(
-              verificationId: _verificationCode, smsCode: smsOTP))
-          .then((value) async {
-        if (value.user != null) {
-          print("Pass to home page");
-          Navigator.pop(context);
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NavigationHomeScreen()),
-          );
-        }
-      });
-    } catch (e) {
-      print("SOMETHING WRONG");
-      FocusScope.of(context).unfocus();
-    }
+    //   try {
+    //     await FirebaseAuth.instance
+    //         .signInWithCredential(PhoneAuthProvider.credential(
+    //             verificationId: _verificationCode, smsCode: smsOTP))
+    //         .then((value) async {
+    //       if (value.user != null) {
+    //         print("Pass to home page");
+    //         Navigator.pop(context);
+    //         Navigator.push(
+    //           context,
+    //           MaterialPageRoute(builder: (context) => NavigationHomeScreen()),
+    //         );
+    //       }
+    //     });
+    //   } catch (e) {
+    //     print("SOMETHING WRONG");
+    //     FocusScope.of(context).unfocus();
+    //   }
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NavigationHomeScreen()),
+    );
   }
 }

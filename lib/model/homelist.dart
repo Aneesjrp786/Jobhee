@@ -25,6 +25,7 @@ class HomeList {
     HomeList(
       imagePath: 'assets/images/registration.png',
       //  navigateScreen: DesignCourseHomeScreen(),
+
     ),
   ];
 }

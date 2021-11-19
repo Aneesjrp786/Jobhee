@@ -1,4 +1,5 @@
 import 'package:baby_madics/app_theme.dart';
+import 'package:baby_madics/screens/login.dart';
 import 'package:flutter/material.dart';
 
 class HomeDrawer extends StatefulWidget {
@@ -198,7 +199,10 @@ class _HomeDrawerState extends State<HomeDrawer> {
   }
 
   void onTapped() {
-    print('Doing Something...'); // Print to console.
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+    );
   }
 
   Widget inkwell(DrawerList listData) {

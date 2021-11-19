@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-class AddOrder extends StatefulWidget {
+class About extends StatefulWidget {
   @override
-  _AddOrderState createState() => _AddOrderState();
+  _AboutState createState() => _AboutState();
 }
 
-class _AddOrderState extends State<AddOrder> {
+class _AboutState extends State<About> {
   final formKey = GlobalKey<FormState>();
   String name;
   String description;
@@ -39,10 +39,10 @@ class _AddOrderState extends State<AddOrder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.white,
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: Text(
-          Strings.titleAddOrder,
+          Strings.titleAbout,
           style: TextStyle(
             fontSize: 20,
             color: AppTheme.darkText,
@@ -50,7 +50,7 @@ class _AddOrderState extends State<AddOrder> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: AppTheme.white,
+        backgroundColor: Colors.grey[100],
         elevation: 0.0,
       ),
       body: DefaultTextStyle(
@@ -74,7 +74,7 @@ class _AddOrderState extends State<AddOrder> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         // SizedBox(height: 20),
-                        // widgetAddOrderLabel(),
+                        // widgetAboutLabel(),
                         widgetName(),
                         widgetUnit(),
                         widgetQuantity(),
@@ -200,7 +200,7 @@ class _AddOrderState extends State<AddOrder> {
                   child: ElevatedButton(
                     autofocus: false,
                     style: ElevatedButton.styleFrom(
-                      primary: Shade.submitButtonColor,
+                      primary: Shade.nearlyBlue,
                       minimumSize: Size(double.infinity, 45),
                       padding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15),
